@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Agregar{% endblock %}
+{% include 'includes/header.html' %}
+{% block content %}
+<h1>Resultado de Análisis de Sangre</h1>
+<div class="row">
+    <div class="col-12">
+        <h2>Información del paciente</h2>
+        <p>Nombre: {{hemogram.user.first_name}} {{hemogram.user.last_name}}</p>
+        <p>Edad: {{hemogram.user.age}}</p>
+    </div>
+    <hr class="my-4">
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Hemograma</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Glóbulos Rojos</td>
+                    <td>{{hemogram.r_blood_cells}} mg/dL</td>
+                </tr>
+                <tr>
+                    <td>Hemoglobina</td>
+                    <td>{{hemogram.hemoglobin}} g/dL</td>
+                </tr>
+                <tr>
+                    <td>Hematocrito</td>
+                    <td>{{hemogram.hematocric}}  mg/dL</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Fórmula Leucocitaria</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Neutrófilos</td>
+                    <td>14 %</td>
+                </tr>
+                <tr>
+                    <td>Linfocitos</td>
+                    <td>120 %</td>
+                </tr>
+                <tr>
+                    <td>Monocitos</td>
+                    <td>120 %</td>
+                </tr>
+                <tr>
+                    <td>Eosinófilos </td>
+                    <td>1 %</td>
+                </tr>
+                <tr>
+                    <td>Basófilos </td>
+                    <td>1 %</td>
+                </tr>
+           
+            </tbody>
+        </table>
+    </div>
+    <hr class="my-4">
+</div>
+{% endblock%}

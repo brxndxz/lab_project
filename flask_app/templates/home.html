@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+{% include 'includes/header.html' %}
+{% block style %}{% endblock %}
+{% block content %}
+
+
+<div class="card-group mt-4">
+  {% if role_id == 1 %}
+  <div class="card" style="width: 18rem;">
+    <img src="{{ url_for('static', filename='images/pat.jpg') }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Pacientes</h5>
+      <p class="card-text">Ver lista de pacientes o agregar nuevo paciente.</p>
+      <div class="d-flex justify-content-between">
+      <a href="/register" class=" btn btn-primary">Registrar Paciente</a>
+      <a href="/show/patients" class="ms-1 btn btn-primary">Ver pacientes</a>
+    </div>
+    </div>
+  </div>
+  {% endif %}
+    <div class="card" style="width: 18rem;">
+      <img src="{{ url_for('static', filename='images/hematologico.webp') }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Hematología</h5>
+        <p class="card-text">Hemograma, Formula Leucocitaria, etc.</p>
+        {% if role_id == 1 %}
+        <div class="d-flex justify-content-between">
+        <a href="/hematological" class="btn btn-primary">Subir nuevo análisis</a>
+        <a href="/hematological/results" class="ms-1 btn btn-primary">Ver subidos</a>
+        </div>
+        {% elif role_id == 2 %}
+        <a href="/hematological/results/patient" class="btn btn-primary">Ver resultados</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="{{ url_for('static', filename='images/urianalisis.png') }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Urianálisis</h5>
+        <p class="card-text">Publique un análisis</p>
+        {% if role_id == 1 %}
+        <div class="d-flex justify-content-between">
+        <a href="#" class="btn btn-primary">Subir nuevo análisis</a>
+        <a href="#" class="ms-1 btn btn-primary">Ver subidos</a>
+      </div>
+        {% elif role_id == 2 %}
+        <a href="#" class="btn btn-primary">Ver resultados</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endblock %}

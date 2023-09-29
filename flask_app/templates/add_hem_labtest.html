@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Agregar{% endblock %}
+{% include 'includes/header.html' %}
+{% block style %}{% endblock %}
+{% block content %}
+
+<div class="container">
+    <main>
+        <div class="py-4">
+            <h2>Formulario de Análisis Hematológico</h2>
+        </div>
+        <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">Datos del paciente y fecha.</h4>
+            <form class="needs-validation" action="/hemogram/create" method="POST">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <p for="first_name" class="form-label">ID: {{user.id}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p for="first_name" class="form-label">Nombre: {{user.first_name}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p for="last_name" class="form-label">Apellido: {{user.last_name}}</p>
+                    </div>
+
+                    <hr class="my-4">
+                    <h4 class="mb-3">Hemograma.</h4>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="r_blood_cells" class="form-label">Glóbulos Rojos</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" name="r_blood_cells" placeholder="" required>
+                                <span class="input-group-text">mm3</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="hemoglobin" class="form-label">Hemoglobina</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" name="hemoglobin" placeholder="" required>
+                                <span class="input-group-text">g/%</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="hematocric" class="form-label">Hematocrito</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" name="hematocric" placeholder="" required>
+                                <span class="input-group-text">%</span>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="user_id" value="{{user.id}}">
+
+                    </div>
+                    <hr class="my-4">
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit">Enviar resultados</button>
+            </form>
+        </div>
+</div>
+</main>
+{% endblock %}

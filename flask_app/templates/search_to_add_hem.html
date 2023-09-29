@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+{% include 'includes/header.html' %}
+{% block style %}{% endblock %}
+{% block content %}
+<h1 class="mb-5">Buscar Pacientes</h1>
+<div class="row">
+    <div class="col-9">
+        <form method="POST">
+            <div class="input-group">
+                <input class="form-control search-input" type="text" name="txtname">
+                <div class="input-group-append">
+                    <input type="submit" value="Buscar" class="btn btn-primary btn-md">
+                </div>
+              </div>
+            
+            <table class="table table-bordered table-striped mt-5">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Funciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    {% for resultado in resultados %}
+                    <tr>
+                        <td scope="row">{{resultado['id']}}</td>
+                        <td scope="row">{{resultado['first_name']}}</td>
+                        <td scope="row">{{resultado['last_name']}}</td>
+                        <td scope="row" class="text-center"><a href="/hematological/{{resultado.id}}/add" class="btn btn-info" type="button">Agregar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
